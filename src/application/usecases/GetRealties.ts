@@ -1,6 +1,6 @@
 import { Realty } from "../../domain/models/Realty";
 import { IRealtyDbAdapter } from "../../domain/adapters/IRealtyDbAdapter";
-import { IGetRealties } from "../interfaces/IGetRealties";
+import { IGetRealties } from "../../domain/useCases/IGetRealties";
 import { RealtyReturnMapper } from "../mappers/RealtyReturnMapper";
 import { RealtyOutput } from "../ports/RealtyOutput";
 

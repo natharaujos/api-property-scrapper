@@ -1,5 +1,5 @@
-import { IGetRealties } from "src/application/interfaces/IGetRealties";
-import { ICreateRealty } from "../../application/interfaces/ICreateRealty";
+import { IGetRealties } from "src/domain/useCases/IGetRealties";
+import { ICreateRealty } from "../../domain/useCases/ICreateRealty";
 import { Request, Response } from "express";
 
 export class RealtyController {
