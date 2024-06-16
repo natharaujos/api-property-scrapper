@@ -1,4 +1,4 @@
-import { RealtyReturn } from "src/infrastructure/dbAdapters/entities/RealtyReturn";
+import { RealtyReturn } from "src/repository/dbAdapters/entities/RealtyReturn";
 import { RealtyOutput } from "../ports/RealtyOutput";
 
 export class RealtyReturnMapper {

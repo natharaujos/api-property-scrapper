@@ -28,7 +28,7 @@
     "./test/**/*.ts",
     "src/config/configure-di.ts",
     "Server.ts",
-    "src/config/SetupApplication.ts"
+    "src/infrastructure/SetupApplication.ts"
   ],
   "exclude": ["./node_modules/*", "dist"]
 }

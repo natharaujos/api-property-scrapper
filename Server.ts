@@ -1,6 +1,6 @@
 import express, { Application } from "express";
 import configureDI from "./src/config/configure-di";
-import { SetupApplication } from "./src/config/SetupApplication";
+import { SetupApplication } from "./src/infrastructure/SetupApplication";
 
 class Server {
   static start(): void {
