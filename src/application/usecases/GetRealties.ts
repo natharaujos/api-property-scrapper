@@ -4,7 +4,7 @@ import { IGetRealties } from "../interfaces/IGetRealties";
 import { RealtyReturnMapper } from "../mappers/RealtyReturnMapper";
 import { RealtyOutput } from "../ports/RealtyOutput";
 
-export class GetRealties implements IGetRealties {
+class GetRealties implements IGetRealties {
   private realtyDbAdapter: IRealtyDbAdapter;
 
   constructor(realtyDbAdapter: IRealtyDbAdapter) {

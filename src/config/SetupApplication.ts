@@ -1,6 +1,5 @@
 import { Application, Request, Response } from "express";
 import bodyParser from "body-parser";
-import { AppDIContainer } from "./configure-di";
 import { RealtyController } from "src/presentation/controllers/RealtyController";
 import cors from "cors";
 import { RealtyOutput } from "src/application/ports/RealtyOutput";
@@ -9,7 +8,7 @@ export class SetupApplication {
   constructor(
     private port = 3000,
     public app: Application,
-    public diContainer: AppDIContainer
+    public realtyController: RealtyController
   ) {}
 
   public init(): void {
@@ -18,9 +17,6 @@ export class SetupApplication {
   }
 
   private setupRoutes(): void {
-    const realtyController =
-      this.diContainer.resolve<RealtyController>("realtyController");
-
     this.app.use(cors());
     this.app.get("/", (req, res) => {
       res.send("Api Property Scrapper");
@@ -29,10 +25,10 @@ export class SetupApplication {
     this.app
       .route("/realties")
       .post((req: Request<{}, {}, RealtyInput>, res: Response) =>
-        realtyController.createRealtyAsync(req, res)
+        this.realtyController.createRealtyAsync(req, res)
       )
       .get((req: any, res: Response) =>
-        realtyController.getRealtyAsync(req, res)
+        this.realtyController.getRealtyAsync(req, res)
       );
   }
 

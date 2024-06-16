@@ -4,7 +4,7 @@ import { db } from "./firebaseConfig";
 import { IRealtyDbAdapter } from "../../domain/adapters/IRealtyDbAdapter";
 import { RealtyReturn } from "./entities/RealtyReturn";
 
-export class RealtyDbAdapter implements IRealtyDbAdapter {
+class RealtyDbAdapter implements IRealtyDbAdapter {
   async createRealty(realty: Realty) {
     const realtiesRef = collection(db, "property-collection");
     try {

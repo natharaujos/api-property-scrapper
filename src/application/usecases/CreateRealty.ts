@@ -2,7 +2,7 @@ import { Realty } from "../../domain/models/Realty";
 import { IRealtyDbAdapter } from "../../domain/adapters/IRealtyDbAdapter";
 import { ICreateRealty } from "../interfaces/ICreateRealty";
 
-export class CreateRealty implements ICreateRealty {
+class CreateRealty implements ICreateRealty {
   private realtyDbAdapter: IRealtyDbAdapter;
 
   constructor(realtyDbAdapter: IRealtyDbAdapter) {
