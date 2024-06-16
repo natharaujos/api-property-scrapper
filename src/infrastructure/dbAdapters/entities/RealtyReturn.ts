@@ -8,10 +8,4 @@ export class RealtyReturn {
     this.name = name;
     this.link = link;
   }
-
-  mapRealtyReturnToRealtyOutput(this: RealtyReturn[]): RealtyOutput[] {
-    const realtyOutput = this.map((realty) => realty as RealtyOutput);
-
-    return realtyOutput;
-  }
 }

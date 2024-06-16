@@ -12,11 +12,11 @@ export class GetRealties implements IGetRealties {
   }
 
   async execute(): Promise<RealtyOutput[]> {
+    const realtyReturnMapper = new RealtyReturnMapper();
     const resultado = await this.realtyDbAdapter.getRealties().then((res) => {
+      console.log(res);
       return realtyReturnMapper.mapRealtyReturnToRealtyOutput(res);
     });
-
-    const realtyReturnMapper = new RealtyReturnMapper();
 
     return resultado;
   }

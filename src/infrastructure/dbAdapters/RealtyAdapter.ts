@@ -1,4 +1,4 @@
-import { collection, doc, setDoc, getDocs } from "@firebase/firestore";
+import { collection, doc, setDoc, getDocs, query } from "@firebase/firestore";
 import { Realty } from "../../domain/models/Realty";
 import { db } from "./firebaseConfig";
 import { IRealtyDbAdapter } from "../../domain/adapters/IRealtyDbAdapter";
@@ -13,21 +13,26 @@ export class RealtyDbAdapter implements IRealtyDbAdapter {
         link: realty.link,
       });
     } catch {
-      throw new Error("Erro ao adicionar imobiliária");
+      throw new Error("Erro ao adicionar imobiliária.");
     }
   }
 
   async getRealties(): Promise<RealtyReturn[]> {
-    const realtiesRef = collection(db, "property-collection");
+    const realtiesRef = query(collection(db, "property-collection"));
     try {
       const docSnap = await getDocs(realtiesRef);
-      if (docSnap.docs.length) {
-        return docSnap.docs.map((doc) => doc.data() as RealtyReturn);
-      } else {
-        return [];
-      }
+      return docSnap.docs.map((doc) => {
+        const realtyReturn: RealtyReturn = {
+          name: doc.data().name,
+          link: doc.data().link,
+        };
+
+        return realtyReturn;
+      });
     } catch (error: any) {
-      throw new Error(error);
+      throw new Error(
+        "Erro ao realizar consultado na coleção de imobiliárias."
+      );
     }
   }
 }

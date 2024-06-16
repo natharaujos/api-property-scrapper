@@ -2,7 +2,7 @@ import { RealtyReturn } from "src/infrastructure/dbAdapters/entities/RealtyRetur
 import { RealtyOutput } from "../ports/RealtyOutput";
 
 export class RealtyReturnMapper {
-  mapRealtyReturnToRealtyOutput(realtyReturn: RealtyReturn[]): RealtyOutput[] {
+  mapRealtyReturnToRealtyOutput(realtyReturn: any[]): RealtyOutput[] {
     const realtyOutput = realtyReturn.map((realty) => realty as RealtyOutput);
 
     return realtyOutput;
