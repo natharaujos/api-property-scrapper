@@ -1,6 +1,6 @@
 import { collection, doc, setDoc, getDocs, query } from "@firebase/firestore";
 import { Realty } from "../../domain/models/Realty";
-import { db } from "./firebaseConfig";
+import { db } from "../../infrastructure/firebaseConfig";
 import { IRealtyDbAdapter } from "../../domain/adapters/IRealtyDbAdapter";
 import { RealtyReturn } from "./entities/RealtyReturn";
 
