@@ -1,8 +1,7 @@
 import { Application, Request, Response } from "express";
 import bodyParser from "body-parser";
-import { RealtyController } from "src/presentation/controllers/RealtyController";
 import cors from "cors";
-import { RealtyOutput } from "src/application/ports/RealtyOutput";
+import { RealtyController } from "src/presentation/controllers/RealtyController/RealtyController";
 
 export class SetupApplication {
   constructor(

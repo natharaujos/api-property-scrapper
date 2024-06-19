@@ -1,8 +1,7 @@
-import { Realty } from "../../domain/models/Realty";
-import { IRealtyDbAdapter } from "../../domain/adapters/IRealtyDbAdapter";
-import { ICreateRealty } from "../../domain/useCases/ICreateRealty";
-
-class CreateRealty implements ICreateRealty {
+import { Realty } from "../domain/models/Realty";
+import { IRealtyDbAdapter } from "../domain/adapters/IRealtyDbAdapter";
+import { ICreateRealty } from "../domain/useCases/ICreateRealty";
+export class CreateRealty implements ICreateRealty {
   private realtyDbAdapter: IRealtyDbAdapter;
 
   constructor(realtyDbAdapter: IRealtyDbAdapter) {

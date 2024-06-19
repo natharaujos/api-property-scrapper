@@ -1,13 +1,11 @@
 import express, { Application } from "express";
-import configureDI from "./src/config/configure-di";
 import { SetupApplication } from "./src/infrastructure/SetupApplication";
+import { realtyController } from "./src/presentation/controllers/RealtyController/instance";
 
 class Server {
   static start(): void {
     const app = express();
-    const diContainer = configureDI(app);
-    const appExpress = diContainer.resolve<Application>("app");
-    const application = new SetupApplication(3333, appExpress, diContainer);
+    const application = new SetupApplication(3333, app, realtyController);
     application.init();
     application.start();
   }

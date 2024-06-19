@@ -1,4 +1,4 @@
-import { RealtyReturn } from "src/repository/dbAdapters/entities/RealtyReturn";
+import { RealtyReturn } from "src/infrastructure/repository/dbAdapters/entities/RealtyReturn";
 import { Realty } from "../models/Realty";
 
 export interface IRealtyDbAdapter {

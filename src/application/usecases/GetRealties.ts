@@ -1,10 +1,10 @@
-import { Realty } from "../../domain/models/Realty";
-import { IRealtyDbAdapter } from "../../domain/adapters/IRealtyDbAdapter";
-import { IGetRealties } from "../../domain/useCases/IGetRealties";
+import { Realty } from "../domain/models/Realty";
+import { IRealtyDbAdapter } from "../domain/adapters/IRealtyDbAdapter";
+import { IGetRealties } from "../domain/useCases/IGetRealties";
 import { RealtyReturnMapper } from "../mappers/RealtyReturnMapper";
 import { RealtyOutput } from "../ports/RealtyOutput";
 
-class GetRealties implements IGetRealties {
+export class GetRealties implements IGetRealties {
   private realtyDbAdapter: IRealtyDbAdapter;
 
   constructor(realtyDbAdapter: IRealtyDbAdapter) {

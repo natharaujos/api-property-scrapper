@@ -1,10 +1,10 @@
 import { collection, doc, setDoc, getDocs, query } from "@firebase/firestore";
-import { Realty } from "../../domain/models/Realty";
-import { db } from "../../infrastructure/firebaseConfig";
-import { IRealtyDbAdapter } from "../../domain/adapters/IRealtyDbAdapter";
+import { Realty } from "../../../application/domain/models/Realty";
+import { db } from "../../firebaseConfig";
+import { IRealtyDbAdapter } from "../../../application/domain/adapters/IRealtyDbAdapter";
 import { RealtyReturn } from "./entities/RealtyReturn";
 
-class RealtyDbAdapter implements IRealtyDbAdapter {
+export class RealtyDbAdapter implements IRealtyDbAdapter {
   async createRealty(realty: Realty) {
     const realtiesRef = collection(db, "property-collection");
     try {
