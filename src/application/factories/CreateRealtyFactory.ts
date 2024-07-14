@@ -1,4 +1,4 @@
-import { RealtyDbAdapter } from "../../infrastructure/repositories/dbAdapters/RealtyAdapter";
+import { RealtyDbAdapter } from "../../infrastructure/repositories/adapters/fireBaseAdapters/RealtyAdapter";
 import { ICreateRealty } from "../domain/useCases/ICreateRealty";
 import { CreateRealty } from "../usecases/CreateRealty";
 

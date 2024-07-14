@@ -1,7 +1,7 @@
 import { collection, doc, setDoc, getDocs, query } from "@firebase/firestore";
-import { Realty } from "../../../application/domain/models/Realty";
-import { db } from "../../firebaseConfig";
-import { IRealtyDbAdapter } from "../../../application/domain/adapters/IRealtyDbAdapter";
+import { Realty } from "../../../../application/domain/models/Realty";
+import { db } from "../../../firebaseConfig";
+import { IRealtyDbAdapter } from "../../../../application/domain/adapters/IRealtyDbAdapter";
 import { RealtyReturn } from "./entities/RealtyReturn";
 
 export class RealtyDbAdapter implements IRealtyDbAdapter {

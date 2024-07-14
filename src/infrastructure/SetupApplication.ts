@@ -2,12 +2,14 @@ import { Application, Request, Response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import { RealtyController } from "src/presentation/controllers/RealtyController/RealtyController";
+import { WebScrapController } from "src/presentation/controllers/WebScrapController/WebScrapController";
 
 export class SetupApplication {
   constructor(
     private port = 3000,
     public app: Application,
-    public realtyController: RealtyController
+    public realtyController: RealtyController,
+    public webScrapController: WebScrapController
   ) {}
 
   public init(): void {
@@ -28,6 +30,12 @@ export class SetupApplication {
       )
       .get((req: any, res: Response) =>
         this.realtyController.getRealtyAsync(req, res)
+      );
+
+    this.app
+      .route("/scrap/ticle")
+      .post((req: any, res: Response) =>
+        this.webScrapController.scrapTicleAsync(req, res)
       );
   }
 
