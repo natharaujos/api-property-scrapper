@@ -1,12 +1,12 @@
 import { collection, doc, setDoc, getDocs, query } from "@firebase/firestore";
 import { Realty } from "../../../../application/domain/models/Realty";
-import { db } from "../../../firebaseConfig";
+import { firebaseDb } from "../../../firebaseConfig";
 import { IRealtyDbAdapter } from "../../../../application/domain/adapters/IRealtyDbAdapter";
 import { RealtyReturn } from "./entities/RealtyReturn";
 
 export class RealtyDbAdapter implements IRealtyDbAdapter {
   async createRealty(realty: Realty) {
-    const realtiesRef = collection(db, "property-collection");
+    const realtiesRef = collection(firebaseDb, "property-collection");
     try {
       await setDoc(doc(realtiesRef, `${realty.name}`), {
         name: realty.name,
@@ -18,7 +18,7 @@ export class RealtyDbAdapter implements IRealtyDbAdapter {
   }
 
   async getRealties(): Promise<RealtyReturn[]> {
-    const realtiesRef = query(collection(db, "property-collection"));
+    const realtiesRef = query(collection(firebaseDb, "property-collection"));
     try {
       const docSnap = await getDocs(realtiesRef);
       return docSnap.docs.map((doc) => {
